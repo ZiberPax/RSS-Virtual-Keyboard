@@ -1,0 +1,123 @@
+{
+  "row_1": {
+    "key1": {
+      "key": "`",
+      "code": "Backquote"
+    },
+    "key2": {
+      "key": "1",
+      "code": "Digit1"
+    },
+    "key3": {
+      "key": "2",
+      "code": "Digit2"
+    },
+    "key4": {
+      "key": "3",
+      "code": "Digit3"
+    },
+    "key5": {
+      "key": "4",
+      "code": "Digit4"
+    },
+    "key6": {
+      "key": "5",
+      "code": "Digit5"
+    },
+    "key7": {
+      "key": "6",
+      "code": "Digit6"
+    },
+    "key8": {
+      "key": "7",
+      "code": "Digit7"
+    },
+    "key9": {
+      "key": "8",
+      "code": "Digit8"
+    },
+    "key10": {
+      "key": "9",
+      "code": "Digit9"
+    },
+    "key11": {
+      "key": "0",
+      "code": "Digit0"
+    },
+    "key12": {
+      "key": "-",
+      "code": "Minus"
+    },
+    "key13": {
+      "key": "=",
+      "code": "Equal"
+    },
+    "key14": {
+      "key": "Backspace",
+      "code": "Backspace"
+    }
+  },
+  "row_2": {
+    "key1": {
+      "key": "Tab",
+      "code": "Tab"
+    },
+    "key2": {
+      "key": "q",
+      "code": "KeyQ"
+    },
+    "key3": {
+      "key": "w",
+      "code": "KeyW"
+    },
+    "key4": {
+      "key": "e",
+      "code": "KeyE"
+    },
+    "key5": {
+      "key": "r",
+      "code": "KeyR"
+    },
+    "key6": {
+      "key": "t",
+      "code": "KeyT"
+    },
+    "key7": {
+      "key": "y",
+      "code": "KeyY"
+    },
+    "key8": {
+      "key": "u",
+      "code": "KeyU"
+    },
+    "key9": {
+      "key": "i",
+      "code": "KeyI"
+    },
+    "key10": {
+      "key": "o",
+      "code": "KeyO"
+    },
+    "key11": {
+      "key": "p",
+      "code": "KeyP"
+    },
+    "key12": {
+      "key": "[",
+      "code": "BracketLeft"
+    },
+    "key13": {
+      "key": "]",
+      "code": "BracketRight"
+    },
+    "key14": {
+      "key": "\\",
+      "code": "Backslash"
+    }
+    ,
+    "key15": {
+      "key": "Del",
+      "code": "Delete"
+    }
+  }
+}
