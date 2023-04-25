@@ -19,8 +19,9 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.title {
-  margin: 30px 0;
+.title,
+h3 {
+  margin-top: 30px;
 }
 
 .textarea {
@@ -35,13 +36,13 @@ body {
 
 .keyboard {
 
-  width: 850px;
+  width: 973px;
   height: auto;
   min-height: 200px;
 
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 5px;
 
   border: 2px solid black;
   border-radius: 10px;
@@ -49,19 +50,23 @@ body {
   padding: 15px;
 }
 
-.row_1 {
-  height: 40px;
+.row_1,
+.row_2,
+.row_3,
+.row_4,
+.row_5 {
+  height: 50px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   gap: 10px;
 }
 
 .keyboard__key {
-  min-width: 40px;
+  min-width: 50px;
   width: auto;
-  height: 40px;
+  height: 50px;
 
   border: 1px solid black;
   border-radius: 5px;
@@ -74,8 +79,48 @@ body {
   cursor: pointer;
 }
 
+.keyboard__key:active {
+  transform: scale(0.8);
+  transition: 0.05s;
+}
+
+.keyboard__key.Space {
+  width: 421px;
+}
+
+.keyboard__key.Tab {
+  width: 76px;
+}
+
+.keyboard__key.Enter {
+  width: 143px;
+}
+
+.keyboard__key.Backspace {
+  width: 158px;
+}
+
+.keyboard__key.MetaLeft {
+  width: 58px;
+}
+
+.keyboard__key.ControlRight {
+  width: 74px;
+}
+
+.keyboard__key.Delete {
+  width: 72px;
+}
+
+.keyboard__key.ShiftRight,
+.keyboard__key.ShiftLeft {
+  width: 134px;
+}
+
 .keyboard__key.active {
   background: white;
+  transform: scale(0.8);
+  transition: 0.05s;
 }
 
 .keyboard__key:hover {
@@ -87,4 +132,8 @@ body {
   width: 100%;
   text-align: center;
   line-height: 26px;
+}
+
+.keyboard .hidden {
+  display: none;
 }
