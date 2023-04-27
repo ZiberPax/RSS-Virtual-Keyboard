@@ -1,460 +1,460 @@
 {
   "row_1": {
     "key1": {
-      "key": "`",
-      "key_shift": "~",
+      "key_eng": "`",
+      "key_shift_eng": "~",
       "key_ru": "ё",
-      "key_ru_shift": "Ё",
+      "key_shift_ru": "Ё",
       "code": "Backquote"
     },
     "key2": {
-      "key": "1",
-      "key_shift": "!",
+      "key_eng": "1",
+      "key_shift_eng": "!",
       "key_ru": "1",
-      "key_ru_shift": "!",
+      "key_shift_ru": "!",
       "code": "Digit1"
     },
     "key3": {
-      "key": "2",
-      "key_shift": "@",
+      "key_eng": "2",
+      "key_shift_eng": "@",
       "key_ru": "2",
-      "key_ru_shift": "\"",
+      "key_shift_ru": "\"",
       "code": "Digit2"
     },
     "key4": {
-      "key": "3",
-      "key_shift": "#",
+      "key_eng": "3",
+      "key_shift_eng": "#",
       "key_ru": "3",
-      "key_ru_shift": "№",
+      "key_shift_ru": "№",
       "code": "Digit3"
     },
     "key5": {
-      "key": "4",
-      "key_shift": "$",
+      "key_eng": "4",
+      "key_shift_eng": "$",
       "key_ru": "4",
-      "key_ru_shift": ";",
+      "key_shift_ru": ";",
       "code": "Digit4"
     },
     "key6": {
-      "key": "5",
-      "key_shift": "%",
+      "key_eng": "5",
+      "key_shift_eng": "%",
       "key_ru": "5",
-      "key_ru_shift": "%",
+      "key_shift_ru": "%",
       "code": "Digit5"
     },
     "key7": {
-      "key": "6",
-      "key_shift": "^",
+      "key_eng": "6",
+      "key_shift_eng": "^",
       "key_ru": "6",
-      "key_ru_shift": ":",
+      "key_shift_ru": ":",
       "code": "Digit6"
     },
     "key8": {
-      "key": "7",
-      "key_shift": "&",
+      "key_eng": "7",
+      "key_shift_eng": "&",
       "key_ru": "7",
-      "key_ru_shift": "?",
+      "key_shift_ru": "?",
       "code": "Digit7"
     },
     "key9": {
-      "key": "8",
-      "key_shift": "*",
+      "key_eng": "8",
+      "key_shift_eng": "*",
       "key_ru": "8",
-      "key_ru_shift": "*",
+      "key_shift_ru": "*",
       "code": "Digit8"
     },
     "key10": {
-      "key": "9",
-      "key_shift": "(",
+      "key_eng": "9",
+      "key_shift_eng": "(",
       "key_ru": "9",
-      "key_ru_shift": "(",
+      "key_shift_ru": "(",
       "code": "Digit9"
     },
     "key11": {
-      "key": "0",
-      "key_shift": ")",
+      "key_eng": "0",
+      "key_shift_eng": ")",
       "key_ru": "0",
-      "key_ru_shift": ")",
+      "key_shift_ru": ")",
       "code": "Digit0"
     },
     "key12": {
-      "key": "-",
-      "key_shift": "_",
+      "key_eng": "-",
+      "key_shift_eng": "_",
       "key_ru": "-",
-      "key_ru_shift": "_",
+      "key_shift_ru": "_",
       "code": "Minus"
     },
     "key13": {
-      "key": "=",
-      "key_shift": "+",
+      "key_eng": "=",
+      "key_shift_eng": "+",
       "key_ru": "=",
-      "key_ru_shift": "+",
+      "key_shift_ru": "+",
       "code": "Equal"
     },
     "key14": {
-      "key": "Backspace",
-      "key_shift": "Backspace",
+      "key_eng": "Backspace",
+      "key_shift_eng": "Backspace",
       "key_ru": "Backspace",
-      "key_ru_shift": "Backspace",
+      "key_shift_ru": "Backspace",
       "code": "Backspace"
     }
   },
   "row_2": {
     "key1": {
-      "key": "Tab",
-      "key_shift": "Tab",
+      "key_eng": "Tab",
+      "key_shift_eng": "Tab",
       "key_ru": "Tab",
-      "key_ru_shift": "Tab",
+      "key_shift_ru": "Tab",
       "code": "Tab"
     },
     "key2": {
-      "key": "q",
-      "key_shift": "Q",
+      "key_eng": "q",
+      "key_shift_eng": "Q",
       "key_ru": "й",
-      "key_ru_shift": "Й",
+      "key_shift_ru": "Й",
       "code": "KeyQ"
     },
     "key3": {
-      "key": "w",
-      "key_shift": "W",
+      "key_eng": "w",
+      "key_shift_eng": "W",
       "key_ru": "ц",
-      "key_ru_shift": "Ц",
+      "key_shift_ru": "Ц",
       "code": "KeyW"
     },
     "key4": {
-      "key": "e",
-      "key_shift": "E",
+      "key_eng": "e",
+      "key_shift_eng": "E",
       "key_ru": "у",
-      "key_ru_shift": "У",
+      "key_shift_ru": "У",
       "code": "KeyE"
     },
     "key5": {
-      "key": "r",
-      "key_shift": "R",
+      "key_eng": "r",
+      "key_shift_eng": "R",
       "key_ru": "к",
-      "key_ru_shift": "К",
+      "key_shift_ru": "К",
       "code": "KeyR"
     },
     "key6": {
-      "key": "t",
-      "key_shift": "T",
+      "key_eng": "t",
+      "key_shift_eng": "T",
       "key_ru": "е",
-      "key_ru_shift": "Е",
+      "key_shift_ru": "Е",
       "code": "KeyT"
     },
     "key7": {
-      "key": "y",
-      "key_shift": "Y",
+      "key_eng": "y",
+      "key_shift_eng": "Y",
       "key_ru": "н",
-      "key_ru_shift": "Н",
+      "key_shift_ru": "Н",
       "code": "KeyY"
     },
     "key8": {
-      "key": "u",
-      "key_shift": "U",
+      "key_eng": "u",
+      "key_shift_eng": "U",
       "key_ru": "г",
-      "key_ru_shift": "Г",
+      "key_shift_ru": "Г",
       "code": "KeyU"
     },
     "key9": {
-      "key": "i",
-      "key_shift": "I",
+      "key_eng": "i",
+      "key_shift_eng": "I",
       "key_ru": "ш",
-      "key_ru_shift": "Ш",
+      "key_shift_ru": "Ш",
       "code": "KeyI"
     },
     "key10": {
-      "key": "o",
-      "key_shift": "O",
+      "key_eng": "o",
+      "key_shift_eng": "O",
       "key_ru": "щ",
-      "key_ru_shift": "Щ",
+      "key_shift_ru": "Щ",
       "code": "KeyO"
     },
     "key11": {
-      "key": "p",
-      "key_shift": "P",
+      "key_eng": "p",
+      "key_shift_eng": "P",
       "key_ru": "з",
-      "key_ru_shift": "З",
+      "key_shift_ru": "З",
       "code": "KeyP"
     },
     "key12": {
-      "key": "[",
-      "key_shift": "{",
+      "key_eng": "[",
+      "key_shift_eng": "{",
       "key_ru": "х",
-      "key_ru_shift": "Х",
+      "key_shift_ru": "Х",
       "code": "BracketLeft"
     },
     "key13": {
-      "key": "]",
-      "key_shift": "}",
+      "key_eng": "]",
+      "key_shift_eng": "}",
       "key_ru": "ъ",
-      "key_ru_shift": "Ъ",
+      "key_shift_ru": "Ъ",
       "code": "BracketRight"
     },
     "key14": {
-      "key": "\\",
-      "key_shift": "/",
+      "key_eng": "\\",
+      "key_shift_eng": "/",
       "key_ru": "\\",
-      "key_ru_shift": "/",
+      "key_shift_ru": "/",
       "code": "Backslash"
     }
     ,
     "key15": {
-      "key": "Del",
-      "key_shift": "Del",
+      "key_eng": "Del",
+      "key_shift_eng": "Del",
       "key_ru": "Del",
-      "key_ru_shift": "Del",
+      "key_shift_ru": "Del",
       "code": "Delete"
     }
   },
   "row_3": {
     "key1": {
-      "key": "CapsLock",
-      "key_shift": "CapsLock",
+      "key_eng": "CapsLock",
+      "key_shift_eng": "CapsLock",
       "key_ru": "CapsLock",
-      "key_ru_shift": "CapsLock",
+      "key_shift_ru": "CapsLock",
       "code": "CapsLock"
     },
     "key2": {
-      "key": "a",
-      "key_shift": "A",
+      "key_eng": "a",
+      "key_shift_eng": "A",
       "key_ru": "ф",
-      "key_ru_shift": "Ф",
+      "key_shift_ru": "Ф",
       "code": "KeyA"
     },
     "key3": {
-      "key": "s",
-      "key_shift": "S",
+      "key_eng": "s",
+      "key_shift_eng": "S",
       "key_ru": "ы",
-      "key_ru_shift": "Ы",
+      "key_shift_ru": "Ы",
       "code": "KeyS"
     },
     "key4": {
-      "key": "d",
-      "key_shift": "D",
+      "key_eng": "d",
+      "key_shift_eng": "D",
       "key_ru": "в",
-      "key_ru_shift": "В",
+      "key_shift_ru": "В",
       "code": "KeyD"
     },
     "key5": {
-      "key": "f",
-      "key_shift": "F",
+      "key_eng": "f",
+      "key_shift_eng": "F",
       "key_ru": "а",
-      "key_ru_shift": "А",
+      "key_shift_ru": "А",
       "code": "KeyF"
     },
     "key6": {
-      "key": "g",
-      "key_shift": "G",
+      "key_eng": "g",
+      "key_shift_eng": "G",
       "key_ru": "п",
-      "key_ru_shift": "П",
+      "key_shift_ru": "П",
       "code": "KeyG"
     },
     "key7": {
-      "key": "h",
-      "key_shift": "H",
+      "key_eng": "h",
+      "key_shift_eng": "H",
       "key_ru": "р",
-      "key_ru_shift": "Р",
+      "key_shift_ru": "Р",
       "code": "KeyH"
     },
     "key8": {
-      "key": "j",
-      "key_shift": "J",
+      "key_eng": "j",
+      "key_shift_eng": "J",
       "key_ru": "о",
-      "key_ru_shift": "О",
+      "key_shift_ru": "О",
       "code": "KeyJ"
     },
     "key9": {
-      "key": "k",
-      "key_shift": "K",
+      "key_eng": "k",
+      "key_shift_eng": "K",
       "key_ru": "л",
-      "key_ru_shift": "Л",
+      "key_shift_ru": "Л",
       "code": "KeyK"
     },
     "key10": {
-      "key": "l",
-      "key_shift": "L",
+      "key_eng": "l",
+      "key_shift_eng": "L",
       "key_ru": "д",
-      "key_ru_shift": "Д",
+      "key_shift_ru": "Д",
       "code": "KeyL"
     },
     "key11": {
-      "key": ";",
-      "key_shift": ":",
+      "key_eng": ";",
+      "key_shift_eng": ":",
       "key_ru": "ж",
-      "key_ru_shift": "Ж",
+      "key_shift_ru": "Ж",
       "code": "Semicolon"
     },
     "key12": {
-      "key": "'",
-      "key_shift": "\"",
+      "key_eng": "'",
+      "key_shift_eng": "\"",
       "key_ru": "э",
-      "key_ru_shift": "Э",
+      "key_shift_ru": "Э",
       "code": "Quote"
     },
     "key13": {
-      "key": "Enter",
-      "key_shift": "Enter",
+      "key_eng": "Enter",
+      "key_shift_eng": "Enter",
       "key_ru": "Enter",
-      "key_ru_shift": "Enter",
+      "key_shift_ru": "Enter",
       "code": "Enter"
     }
   },
   "row_4": {
     "key1": {
-      "key": "Shift",
-      "key_shift": "Shift",
+      "key_eng": "Shift",
+      "key_shift_eng": "Shift",
       "key_ru": "Shift",
-      "key_ru_shift": "Shift",
+      "key_shift_ru": "Shift",
       "code": "ShiftLeft"
     },
     "key2": {
-      "key": "z",
-      "key_shift": "Z",
+      "key_eng": "z",
+      "key_shift_eng": "Z",
       "key_ru": "ж",
-      "key_ru_shift": "Ж",
+      "key_shift_ru": "Ж",
       "code": "KeyZ"
     },
     "key3": {
-      "key": "x",
-      "key_shift": "X",
+      "key_eng": "x",
+      "key_shift_eng": "X",
       "key_ru": "ч",
-      "key_ru_shift": "Ч",
+      "key_shift_ru": "Ч",
       "code": "KeyX"
     },
     "key4": {
-      "key": "c",
-      "key_shift": "C",
+      "key_eng": "c",
+      "key_shift_eng": "C",
       "key_ru": "с",
-      "key_ru_shift": "С",
+      "key_shift_ru": "С",
       "code": "KeyC"
     },
     "key5": {
-      "key": "v",
-      "key_shift": "V",
+      "key_eng": "v",
+      "key_shift_eng": "V",
       "key_ru": "м",
-      "key_ru_shift": "М",
+      "key_shift_ru": "М",
       "code": "KeyV"
     },
     "key6": {
-      "key": "b",
-      "key_shift": "B",
+      "key_eng": "b",
+      "key_shift_eng": "B",
       "key_ru": "и",
-      "key_ru_shift": "И",
+      "key_shift_ru": "И",
       "code": "KeyB"
     },
     "key7": {
-      "key": "n",
-      "key_shift": "N",
+      "key_eng": "n",
+      "key_shift_eng": "N",
       "key_ru": "т",
-      "key_ru_shift": "Т",
+      "key_shift_ru": "Т",
       "code": "KeyN"
     },
     "key8": {
-      "key": "m",
-      "key_shift": "M",
+      "key_eng": "m",
+      "key_shift_eng": "M",
       "key_ru": "ь",
-      "key_ru_shift": "Ь",
+      "key_shift_ru": "Ь",
       "code": "KeyM"
     },
     "key9": {
-      "key": ",",
-      "key_shift": "<",
+      "key_eng": ",",
+      "key_shift_eng": "<",
       "key_ru": "б",
-      "key_ru_shift": "Б",
+      "key_shift_ru": "Б",
       "code": "Comma"
     },
     "key10": {
-      "key": ".",
-      "key_shift": ">",
+      "key_eng": ".",
+      "key_shift_eng": ">",
       "key_ru": "ю",
-      "key_ru_shift": "Ю",
+      "key_shift_ru": "Ю",
       "code": "Period"
     },
     "key11": {
-      "key": "/",
-      "key_shift": "?",
+      "key_eng": "/",
+      "key_shift_eng": "?",
       "key_ru": ".",
-      "key_ru_shift": ",",
+      "key_shift_ru": ",",
       "code": "Slash"
     },
     "key12": {
-      "key": "↑",
-      "key_shift": "↑",
+      "key_eng": "↑",
+      "key_shift_eng": "↑",
       "key_ru": "↑",
-      "key_ru_shift": "↑",
+      "key_shift_ru": "↑",
       "code": "ArrowUp"
     },
     "key13": {
-      "key": "Shift",
-      "key_shift": "Shift",
+      "key_eng": "Shift",
+      "key_shift_eng": "Shift",
       "key_ru": "Shift",
-      "key_ru_shift": "Shift",
+      "key_shift_ru": "Shift",
       "code": "ShiftRight"
     }
   },
   "row_5": {
     "key1": {
-      "key": "Ctrl",
-      "key_shift": "Ctrl",
+      "key_eng": "Ctrl",
+      "key_shift_eng": "Ctrl",
       "key_ru": "Ctrl",
-      "key_ru_shift": "Ctrl",
+      "key_shift_ru": "Ctrl",
       "code": "ControlLeft"
     },
     "key2": {
-      "key": "Win",
-      "key_shift": "Win",
+      "key_eng": "Win",
+      "key_shift_eng": "Win",
       "key_ru": "Win",
-      "key_ru_shift": "Win",
+      "key_shift_ru": "Win",
       "code": "MetaLeft"
     },
     "key3": {
-      "key": "Alt",
-      "key_shift": "Alt",
+      "key_eng": "Alt",
+      "key_shift_eng": "Alt",
       "key_ru": "Alt",
-      "key_ru_shift": "Alt",
+      "key_shift_ru": "Alt",
       "code": "AltLeft"
     },
     "key4": {
-      "key": " ",
-      "key_shift": " ",
+      "key_eng": " ",
+      "key_shift_eng": " ",
       "key_ru": " ",
-      "key_ru_shift": " ",
+      "key_shift_ru": " ",
       "code": "Space"
     },
     "key5": {
-      "key": "Alt",
-      "key_shift": "Alt",
+      "key_eng": "Alt",
+      "key_shift_eng": "Alt",
       "key_ru": "Alt",
-      "key_ru_shift": "Alt",
+      "key_shift_ru": "Alt",
       "code": "AltRight"
     },
     "key6": {
-      "key": "←",
-      "key_shift": "←",
+      "key_eng": "←",
+      "key_shift_eng": "←",
       "key_ru": "←",
-      "key_ru_shift": "←",
+      "key_shift_ru": "←",
       "code": "ArrowLeft"
     },
     "key7": {
-      "key": "↓",
-      "key_shift": "↓",
+      "key_eng": "↓",
+      "key_shift_eng": "↓",
       "key_ru": "↓",
-      "key_ru_shift": "↓",
+      "key_shift_ru": "↓",
       "code": "ArrowDown"
     },
     "key8": {
-      "key": "→",
-      "key_shift": "→",
+      "key_eng": "→",
+      "key_shift_eng": "→",
       "key_ru": "→",
-      "key_ru_shift": "→",
+      "key_shift_ru": "→",
       "code": "ArrowRight"
     },
     "key9": {
-      "key": "Ctrl",
-      "key_shift": "Ctrl",
+      "key_eng": "Ctrl",
+      "key_shift_eng": "Ctrl",
       "key_ru": "Ctrl",
-      "key_ru_shift": "Ctrl",
+      "key_shift_ru": "Ctrl",
       "code": "ControlRight"
     }
   }
