@@ -1,6 +1,12 @@
 import keyObject from "./keys.json" assert {type: "json"};
 let shiftPressed = false;
-let actual_language = `eng`;
+let actual_language;
+if (localStorage.getItem(`language`) && (localStorage.getItem(`language`) == `eng` || localStorage.getItem(`language`) == `ru`)) {
+  actual_language = localStorage.getItem(`language`);
+} else {
+  actual_language = `eng`;
+  localStorage.setItem('language',actual_language);
+}
 class add_element {
   constructor(tag, classes, content, content_ru, contentUp_en, contentUp_ru) {
     this.tag = tag;
@@ -169,13 +175,8 @@ function onOffClass (collectionOn, collectionOff) {
         document.querySelector(`.textarea`).value = newValueTextInput;
         document.querySelector(`.textarea`).selectionStart = startPosition - 1;
         document.querySelector(`.textarea`).selectionEnd = endPosition - 1;
-        
-        // console.log(document.querySelector(`.textarea`).selectionStart, document.querySelector(`.textarea`).selectionEnd);
-        // document.querySelector(`.textarea`).selectionStart -= 1;
-        // document.querySelector(`.textarea`).selectionEnd -= 1;
       }
     } else {
-      console.log(`here`);
       newValueTextInput =
         document.querySelector(`.textarea`).value.substring(0, startPosition) +
         document
@@ -187,10 +188,53 @@ function onOffClass (collectionOn, collectionOff) {
           document.querySelector(`.textarea`).value = newValueTextInput;
           document.querySelector(`.textarea`).selectionEnd = startPosition;
     }
-    // console.log(document.querySelector(`.textarea`).value.length);
-    
+  }
+
+  function textDeleteDel(text) {
+    let startPosition = document.querySelector(`.textarea`).selectionStart;
+    let endPosition = document.querySelector(`.textarea`).selectionEnd;
+    let newValueTextInput = "";
+    if (startPosition == endPosition) {
+      if (document.querySelector(`.textarea`).selectionStart != document.querySelector(`.textarea`).value.length) {
+        newValueTextInput = document.querySelector(`.textarea`).value.substring(0,document.querySelector(`.textarea`).selectionStart) + document.querySelector(`.textarea`).value.substring(document.querySelector(`.textarea`).selectionEnd + 1, document.querySelector(`.textarea`).value.length);
+        document.querySelector(`.textarea`).value = newValueTextInput;
+        document.querySelector(`.textarea`).selectionStart = startPosition ;
+        document.querySelector(`.textarea`).selectionEnd = endPosition;
+      }
+    } else {
+      newValueTextInput =
+        document.querySelector(`.textarea`).value.substring(0, startPosition) +
+        document
+          .querySelector(`.textarea`)
+          .value.substring(
+            endPosition,
+            document.querySelector(`.textarea`).value.length
+          );
+          document.querySelector(`.textarea`).value = newValueTextInput;
+          document.querySelector(`.textarea`).selectionEnd = startPosition;
+    }
   }
   let capsKey = document.querySelector(`.CapsLock`)
+  // проверяю язык и включаю на клавиатуре нужный
+  console.log(localStorage.getItem(`language`) == `eng`);
+  if (localStorage.getItem(`language`) == `eng`) {
+    let collectionOn = Array.from(document.getElementsByClassName(`eng normal`));
+    let collectionOff = Array.from(document.getElementsByClassName(`ru normal`));
+
+    for (let i = 0; i < collectionOn.length; i++) {
+      // console.log(collectionOff[i]);
+      collectionOn[i].classList.remove(`hidden`);
+      collectionOff[i].classList.add(`hidden`);
+    }
+  } else {
+    let collectionOn = Array.from(document.getElementsByClassName(`ru normal`));
+    let collectionOff = Array.from(document.getElementsByClassName(`eng normal`));
+    for (let i = 0; i < collectionOn.length; i++) {
+      // console.log(collectionOff[i]);
+      collectionOn[i].classList.remove(`hidden`);
+      collectionOff[i].classList.add(`hidden`);
+    }
+  }
   // получаю массив всех клавиш на страница и вешаю листнер для каждой 
   Array.from(document.getElementsByClassName(`keyboard__key`)).forEach((element) => {
     // лиснер для клика на кливишу 
@@ -204,11 +248,15 @@ function onOffClass (collectionOn, collectionOff) {
           capsKey.classList.toggle(`caps_active`)
         } else if (shiftPressed) {
           textInsert(document.querySelector(`.${element.classList[0]}.${element.classList[1]} .${`${actual_language}.shift`}`).textContent);
+        } else if (element.classList.contains(`Enter`)) {
+          textInsert(`\n`);
+        } else if (element.classList.contains(`Delete`)) {
+          textDeleteDel();
         }
         else {
           if (capsKey.classList.contains(`caps_active`)) {
             textInsert(document.querySelector(`.${element.classList[0]}.${element.classList[1]} .${`${actual_language}.capslock`}`).textContent);
-          } else {
+          } else {  
             textInsert(document.querySelector(`.${element.classList[0]}.${element.classList[1]} .${`${actual_language}.normal`}`).textContent);
           }
           // console.log(`.${element.classList[0]}.${element.classList[1]} .${`eng.normal`}`);
@@ -240,6 +288,10 @@ function onOffClass (collectionOn, collectionOff) {
       document.querySelector(`.Tab`).classList.add(`tab-active`)
       textInsert(`    `);
     }
+    if (event.key === `Enter`) {
+      event.preventDefault();
+      textInsert(`\n`);
+    }
     if (event.key === `CapsLock`) {
       event.preventDefault();
       onOffClass(document.getElementsByClassName(`${actual_language} capslock`), document.getElementsByClassName(`${actual_language} normal`))
@@ -268,6 +320,7 @@ function onOffClass (collectionOn, collectionOff) {
       let acum_lang = actual_language;
       if (actual_language == 'eng') {
         actual_language = `ru`;
+        localStorage.setItem('language', actual_language)
         if (capsKey.classList.contains(`caps_active`)) {
           onOffClass(document.getElementsByClassName(`${actual_language} capslock`), document.getElementsByClassName(`${acum_lang} capslock`))
         } else {
@@ -277,6 +330,7 @@ function onOffClass (collectionOn, collectionOff) {
         console.log(`hrer`);
       } else {
         actual_language = `eng`;
+        localStorage.setItem('language', actual_language)
         if (capsKey.classList.contains(`caps_active`)) {
           onOffClass(document.getElementsByClassName(`${actual_language} capslock`), document.getElementsByClassName(`${acum_lang} capslock`))
         } else {
