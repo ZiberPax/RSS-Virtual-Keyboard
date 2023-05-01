@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/extensions
 import keyObject from './keys.js';
 
 let shiftPressed = false;
@@ -619,13 +618,36 @@ document.addEventListener('DOMContentLoaded', function (event) {
     } else if (event.key === `MetaKey`) {
     } else {
       event.preventDefault();
-      if (capsKey.classList.contains(`caps_active`)) {
+      if (shiftPressed) {
+        if (
+          document
+            .querySelector(`.CapsLock`)
+            .classList.contains(`caps_active`)
+        ) {
+          event.preventDefault();
+          textInsert(
+            document.querySelector(
+              `.${event.code} .${`${actualLanguage}.normal`}`
+            ).textContent
+          );
+        } else {
+          event.preventDefault();
+          textInsert(
+            document.querySelector(
+              `.${event.code} .${`${actualLanguage}.shift`}`
+            ).textContent
+          );
+        }
+      }
+      else if (capsKey.classList.contains(`caps_active`)) {
+        event.preventDefault();
         textInsert(
           document.querySelector(
             `.${event.code} .${`${actualLanguage}.capslock `}`
           ).textContent
         );
       } else {
+        event.preventDefault();
         textInsert(
           document.querySelector(
             `.${event.code} .${`${actualLanguage}.normal `}`

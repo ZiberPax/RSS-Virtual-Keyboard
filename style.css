@@ -68,14 +68,13 @@ h3 {
   width: auto;
   height: 50px;
 
-  border: 1px solid black;
   border-radius: 5px;
   background: #aeaeae;
 
   padding: 5px;
 
   font-size: 1.5rem;
-
+  box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
   cursor: pointer;
 }
 
@@ -85,13 +84,13 @@ h3 {
 
 .keyboard__key:active {
   background: white;
-  transform: scale(0.8);
+  transform: scale(1.1);
   transition: 0.05s;
 }
 
 .keyboard__key.caps_active {
   background: white;
-  transform: scale(0.8);
+  transform: scale(1.1);
   transition: 0.05s;
 }
 
@@ -132,7 +131,7 @@ h3 {
 
 .keyboard__key.active {
   background: white;
-  transform: scale(0.8);
+  transform: scale(1.1);
   transition: 0.05s;
 }
 
