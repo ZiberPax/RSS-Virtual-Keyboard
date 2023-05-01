@@ -79,10 +79,23 @@ h3 {
   cursor: pointer;
 }
 
+.keyboard__key:hover {
+  background: #cdcccc;
+}
+
 .keyboard__key:active {
+  background: white;
   transform: scale(0.8);
   transition: 0.05s;
 }
+
+.keyboard__key.caps_active {
+  background: white;
+  transform: scale(0.8);
+  transition: 0.05s;
+}
+
+
 
 .keyboard__key.Space {
   width: 421px;
@@ -123,9 +136,7 @@ h3 {
   transition: 0.05s;
 }
 
-.keyboard__key:hover {
-  background: #cdcccc;
-}
+
 
 .keyboard__key span {
   display: block;

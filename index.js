@@ -216,7 +216,6 @@ function onOffClass (collectionOn, collectionOff) {
   }
   let capsKey = document.querySelector(`.CapsLock`)
   // проверяю язык и включаю на клавиатуре нужный
-  console.log(localStorage.getItem(`language`) == `eng`);
   if (localStorage.getItem(`language`) == `eng`) {
     let collectionOn = Array.from(document.getElementsByClassName(`eng normal`));
     let collectionOff = Array.from(document.getElementsByClassName(`ru normal`));
@@ -246,13 +245,20 @@ function onOffClass (collectionOn, collectionOff) {
         } else if (element.classList.contains(`CapsLock`)) {
           onOffClass(document.getElementsByClassName(`${actual_language} capslock`), document.getElementsByClassName(`${actual_language} normal`))
           capsKey.classList.toggle(`caps_active`)
+          
+        } else if (event.target.outerText == 'Shift' || event.target.outerText == 'Ctrl' || event.target.outerText == 'Alt' || event.target.outerText == 'Win') {
         } else if (shiftPressed) {
-          textInsert(document.querySelector(`.${element.classList[0]}.${element.classList[1]} .${`${actual_language}.shift`}`).textContent);
+          if (document.querySelector(`.CapsLock`).classList.contains(`caps_active`)) {
+            textInsert(document.querySelector(`.${element.classList[0]}.${element.classList[1]} .${`${actual_language}.normal`}`).textContent);    
+          } else {
+            textInsert(document.querySelector(`.${element.classList[0]}.${element.classList[1]} .${`${actual_language}.shift`}`).textContent);    
+          }
         } else if (element.classList.contains(`Enter`)) {
           textInsert(`\n`);
         } else if (element.classList.contains(`Delete`)) {
           textDeleteDel();
         }
+        
         else {
           if (capsKey.classList.contains(`caps_active`)) {
             textInsert(document.querySelector(`.${element.classList[0]}.${element.classList[1]} .${`${actual_language}.capslock`}`).textContent);
@@ -273,15 +279,61 @@ function onOffClass (collectionOn, collectionOff) {
       return false;
     }
   });
+
+  // лиснер для нажатой но не отпущенной кнопки мыши
   document.addEventListener("mousedown", (event) => {
+    if (event.target.outerText == `Shift`) {
+      event.preventDefault();
+      shiftPressed = true;
+      let collectionOn = Array.from(document.getElementsByClassName(`${actual_language} capslock`));
+      let collectionOff = Array.from(document.getElementsByClassName(`${actual_language} normal`));
+      if (document.querySelector(`.CapsLock`).classList.contains(`caps_active`)) {
+        for (let i = 0; i < collectionOn.length; i++) {
+          // console.log(collectionOff[i]);
+          collectionOn[i].classList.add(`hidden`);
+          collectionOff[i].classList.remove(`hidden`);
+        }
+      } else {
+        for (let i = 0; i < collectionOn.length; i++) {
+          // console.log(collectionOff[i]);
+          collectionOn[i].classList.remove(`hidden`);
+          collectionOff[i].classList.add(`hidden`);
+        }
+      }
+    }
     if (!event.target.classList.contains(`textarea`)) {
       event.preventDefault();
       return false;
     }
   });
-  // лиснер для нажатой, но не отпущенной клавишы
+
+  // лиснер для отпущенной кнопки мыши
+  document.addEventListener("mouseup", (event) => {
+    if (event.target.outerText == `Shift`) {
+      shiftPressed = false;
+      let collectionOn = Array.from(document.getElementsByClassName(`${actual_language} capslock`));
+      let collectionOff = Array.from(document.getElementsByClassName(`${actual_language} normal`));
+      if (document.querySelector(`.CapsLock`).classList.contains(`caps_active`)) {
+        for (let i = 0; i < collectionOn.length; i++) {
+          // console.log(collectionOff[i]);
+          collectionOn[i].classList.remove(`hidden`);
+          collectionOff[i].classList.add(`hidden`);
+        }
+      }
+      else {
+        for (let i = 0; i < collectionOn.length; i++) {
+          // console.log(collectionOff[i]);
+          collectionOn[i].classList.add(`hidden`);
+          collectionOff[i].classList.remove(`hidden`);
+        }
+      }
+    }
+  });
+
+  // лиснер для нажатой, но не отпущенной клавишы клавиатуры
   document.addEventListener("keydown", (event) => {
     // console.log(event);
+    console.log(event);
     // console.log(event.getModifierState('CapsLock'));
     if (event.key === `Tab`) {
       event.preventDefault();
@@ -291,6 +343,22 @@ function onOffClass (collectionOn, collectionOff) {
     if (event.key === `Enter`) {
       event.preventDefault();
       textInsert(`\n`);
+    }
+    if (event.key === `ArrowUp`) {
+      event.preventDefault();
+      textInsert(`↑`);
+    }
+    if (event.key === `ArrowDown`) {
+      event.preventDefault();
+      textInsert(`↓`);
+    }
+    if (event.key === `ArrowLeft`) {
+      event.preventDefault();
+      textInsert(`←`);
+    }
+    if (event.key === `ArrowRight`) {
+      event.preventDefault();
+      textInsert(`→`);
     }
     if (event.key === `CapsLock`) {
       event.preventDefault();
@@ -303,10 +371,18 @@ function onOffClass (collectionOn, collectionOff) {
       let collectionOn = Array.from(document.getElementsByClassName(`${actual_language} capslock`));
       let collectionOff = Array.from(document.getElementsByClassName(`${actual_language} normal`));
     
-      for (let i = 0; i < collectionOn.length; i++) {
-        // console.log(collectionOff[i]);
-        collectionOn[i].classList.remove(`hidden`);
-        collectionOff[i].classList.add(`hidden`);
+      if (document.querySelector(`.CapsLock`).classList.contains(`caps_active`)) {
+        for (let i = 0; i < collectionOn.length; i++) {
+          // console.log(collectionOff[i]);
+          collectionOn[i].classList.add(`hidden`);
+          collectionOff[i].classList.remove(`hidden`);
+        }
+      } else {
+        for (let i = 0; i < collectionOn.length; i++) {
+          // console.log(collectionOff[i]);
+          collectionOn[i].classList.remove(`hidden`);
+          collectionOff[i].classList.add(`hidden`);
+        }
       }
     }
     if (event.key === `Control`) {
@@ -346,7 +422,7 @@ function onOffClass (collectionOn, collectionOff) {
       document.querySelector(`.${event.code}`).classList.add(`active`);
     }
   });
-  // лиснер для отпущенной клавишы
+  // лиснер для отпущенной клавишы клавиатуры
   document.addEventListener("keyup", (event) => {
     if (document.querySelector(`.${event.code}`)) {
       document.querySelector(`.${event.code}`).classList.remove(`active`);
@@ -356,10 +432,19 @@ function onOffClass (collectionOn, collectionOff) {
       let collectionOn = Array.from(document.getElementsByClassName(`${actual_language} capslock`));
       let collectionOff = Array.from(document.getElementsByClassName(`${actual_language} normal`));
     
-      for (let i = 0; i < collectionOn.length; i++) {
-        // console.log(collectionOff[i]);
-        collectionOn[i].classList.add(`hidden`);
-        collectionOff[i].classList.remove(`hidden`);
+      if (document.querySelector(`.CapsLock`).classList.contains(`caps_active`)) {
+        for (let i = 0; i < collectionOn.length; i++) {
+          // console.log(collectionOff[i]);
+          collectionOn[i].classList.remove(`hidden`);
+          collectionOff[i].classList.add(`hidden`);
+        }
+      }
+      else {
+        for (let i = 0; i < collectionOn.length; i++) {
+          // console.log(collectionOff[i]);
+          collectionOn[i].classList.add(`hidden`);
+          collectionOff[i].classList.remove(`hidden`);
+        }
       }
     }
 
@@ -374,27 +459,26 @@ function onOffClass (collectionOn, collectionOff) {
 
 
   document.addEventListener('keypress', (event) => {
+    console.log(event);
     if (!document.querySelector(`.${event.code}`)) {
       console.log(`нет такой клавишы`);
       event.preventDefault()
+      return 
     }
     // блок для обработки нажатия CAPSLOCK 
     if ((event.getModifierState('CapsLock') == true ) &&  (capsKey.classList.contains(`caps_active`) == false)) {
       event.preventDefault()
       console.log(`.${event.code} .${`${actual_language}.normal`}`);
-      // TO-DO реализовать смену языка, сделать детект языка в системе
       textInsert(document.querySelector(`.${event.code} .${`${actual_language}.normal`}`).textContent)
     }
     else if ((!event.getModifierState('CapsLock')) &&  (capsKey.classList.contains(`caps_active`))) {
       event.preventDefault()
       console.log(`.${event.code} .${`${actual_language}.normal`}`);
-      // TO-DO реализовать смену языка, сделать детект языка в системе
       textInsert(document.querySelector(`.${event.code} .${`${actual_language}.capslock `}`).textContent)
     }
     else if (event.key === `Alt`) {
       event.preventDefault()
     } else if (event.key === `MetaKey`) {
-      console.log('here');
     } else {
       event.preventDefault()
       if (capsKey.classList.contains(`caps_active`)) {
