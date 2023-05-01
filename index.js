@@ -233,7 +233,7 @@ function onOffClass (collectionOn, collectionOff) {
     // лиснер для клика на кливишу 
       element.addEventListener(`click`, (event) => {
         if (element.classList.contains(`Tab`)) {
-          document.querySelector(`.textarea`).textContent += `  `;
+          textInsert(document.querySelector(`    `).textContent);
         } else if (element.classList.contains(`Backspace`)) {
           textDeleteBackspace();
         } else if (element.classList.contains(`CapsLock`)) {
