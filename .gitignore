@@ -1,6 +1,3 @@
 /node_modules
-.eslintignore
-.eslintrc
 package-lock.json
-package.json
 README.md

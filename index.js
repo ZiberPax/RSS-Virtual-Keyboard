@@ -1,11 +1,16 @@
 import keyObject from "./keys.json" assert {type: "json"};
+
 let shiftPressed = false;
 let actual_language;
-if (localStorage.getItem(`language`) && (localStorage.getItem(`language`) == `eng` || localStorage.getItem(`language`) == `ru`)) {
+if (
+  localStorage.getItem(`language`) &&
+  (localStorage.getItem(`language`) == `eng` ||
+    localStorage.getItem(`language`) == `ru`)
+) {
   actual_language = localStorage.getItem(`language`);
 } else {
   actual_language = `eng`;
-  localStorage.setItem('language',actual_language);
+  localStorage.setItem("language", actual_language);
 }
 class add_element {
   constructor(tag, classes, content, content_ru, contentUp_en, contentUp_ru) {
@@ -16,7 +21,12 @@ class add_element {
     this.contentUp_en = contentUp_en;
     this.contentUp_ru = contentUp_ru;
     this.my_element = ``;
-    this.key_paragraph_eng, this.key_paragraph_eng_shift,  this.key_paragraph_eng_capslock, this.key_paragraph_ru,  this.key_paragraph_ru_shift, this.key_paragraph_ru_capslock;
+    this.key_paragraph_eng,
+      this.key_paragraph_eng_shift,
+      this.key_paragraph_eng_capslock,
+      this.key_paragraph_ru,
+      this.key_paragraph_ru_shift,
+      this.key_paragraph_ru_capslock;
   }
 
   createEL() {
@@ -50,43 +60,43 @@ class add_element {
 
     // заполнение спаном для шифт англ
     this.key_paragraph_eng_shift = document.createElement(`span`);
-    this.key_paragraph_eng_shift .classList.add(`eng`);
-    this.key_paragraph_eng_shift .classList.add(`shift`);
-    this.key_paragraph_eng_shift .classList.add(`hidden`);
-    this.key_paragraph_eng_shift .textContent = this.contentUp_en;
+    this.key_paragraph_eng_shift.classList.add(`eng`);
+    this.key_paragraph_eng_shift.classList.add(`shift`);
+    this.key_paragraph_eng_shift.classList.add(`hidden`);
+    this.key_paragraph_eng_shift.textContent = this.contentUp_en;
     this.my_element.appendChild(this.key_paragraph_eng_shift);
 
     // заполнение спаном для капс англ
     this.key_paragraph_eng_capslock = document.createElement(`span`);
-    this.key_paragraph_eng_capslock .classList.add(`eng`);
-    this.key_paragraph_eng_capslock .classList.add(`capslock`);
-    this.key_paragraph_eng_capslock .classList.add(`hidden`);
-    this.key_paragraph_eng_capslock .textContent = this.contentUp_en;
-    this.my_element.appendChild(this.key_paragraph_eng_capslock );
+    this.key_paragraph_eng_capslock.classList.add(`eng`);
+    this.key_paragraph_eng_capslock.classList.add(`capslock`);
+    this.key_paragraph_eng_capslock.classList.add(`hidden`);
+    this.key_paragraph_eng_capslock.textContent = this.contentUp_en;
+    this.my_element.appendChild(this.key_paragraph_eng_capslock);
 
     // заполнение спаном для обычного ру
     this.key_paragraph_ru = document.createElement(`span`);
-    this.key_paragraph_ru .classList.add(`ru`);
-    this.key_paragraph_ru .classList.add(`normal`);
-    this.key_paragraph_ru .classList.add(`hidden`);
+    this.key_paragraph_ru.classList.add(`ru`);
+    this.key_paragraph_ru.classList.add(`normal`);
+    this.key_paragraph_ru.classList.add(`hidden`);
     this.key_paragraph_ru.textContent = this.content_ru;
-    this.my_element.appendChild(this.key_paragraph_ru );
+    this.my_element.appendChild(this.key_paragraph_ru);
 
     // заполнение спаном для шифт ру
     this.key_paragraph_ru_shift = document.createElement(`span`);
-    this.key_paragraph_ru_shift .classList.add(`ru`);
-    this.key_paragraph_ru_shift .classList.add(`shift`);
-    this.key_paragraph_ru_shift .classList.add(`hidden`);
+    this.key_paragraph_ru_shift.classList.add(`ru`);
+    this.key_paragraph_ru_shift.classList.add(`shift`);
+    this.key_paragraph_ru_shift.classList.add(`hidden`);
     this.key_paragraph_ru_shift.textContent = this.contentUp_ru;
-    this.my_element.appendChild(this.key_paragraph_ru_shift );
+    this.my_element.appendChild(this.key_paragraph_ru_shift);
 
     // заполнение спаном для капс ру
     this.key_paragraph_ru_capslock = document.createElement(`span`);
-    this.key_paragraph_ru_capslock .classList.add(`ru`);
-    this.key_paragraph_ru_capslock .classList.add(`capslock`);
-    this.key_paragraph_ru_capslock .classList.add(`hidden`);
+    this.key_paragraph_ru_capslock.classList.add(`ru`);
+    this.key_paragraph_ru_capslock.classList.add(`capslock`);
+    this.key_paragraph_ru_capslock.classList.add(`hidden`);
     this.key_paragraph_ru_capslock.textContent = this.contentUp_ru;
-    this.my_element.appendChild(this.key_paragraph_ru_capslock );
+    this.my_element.appendChild(this.key_paragraph_ru_capslock);
 
     return this.my_element;
   }
@@ -100,16 +110,27 @@ document.body.appendChild(
 );
 document.querySelector(`.textarea`).focus();
 document.body.appendChild(new add_element(`main`, [`keyboard`], ``).createEL());
-document.body.appendChild(new add_element(`h3`, [`instruction_1`], `Клавиатура создана в операционной системе Windows 10 `).createEL());
-document.body.appendChild(new add_element(`h3`, [`instruction_2`], `Для смены языка нажмите левые Ctrl + Alt`).createEL());
+document.body.appendChild(
+  new add_element(
+    `h3`,
+    [`instruction_1`],
+    `Клавиатура создана в операционной системе Windows 10 `
+  ).createEL()
+);
+document.body.appendChild(
+  new add_element(
+    `h3`,
+    [`instruction_2`],
+    `Для смены языка нажмите левые Ctrl + Alt`
+  ).createEL()
+);
 document.querySelector(`.keyboard`);
 
 document.addEventListener("DOMContentLoaded", function (event) {
-  
   for (let m = 1; m <= Object.keys(keyObject).length; m++) {
     document
-    .getElementsByTagName(`main`)[0]
-    .appendChild(new add_element(`div`, [`row_${m}`], ``).createEL());
+      .getElementsByTagName(`main`)[0]
+      .appendChild(new add_element(`div`, [`row_${m}`], ``).createEL());
     for (let i = 0; i < Object.keys(keyObject[`row_${m}`]).length; i++) {
       document
         .querySelector(`.row_${m}`)
@@ -129,19 +150,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 
-let my_textarea =  document.querySelector(`.textarea`)
+  let my_textarea = document.querySelector(`.textarea`);
 
-// функция вкл/выкл классы 
-function onOffClass (collectionOn, collectionOff) {
-  collectionOn = Array.from(collectionOn);
-  collectionOff = Array.from(collectionOff);
+  // функция вкл/выкл классы
+  function onOffClass(collectionOn, collectionOff) {
+    collectionOn = Array.from(collectionOn);
+    collectionOff = Array.from(collectionOff);
 
-  for (let i = 0; i < collectionOn.length; i++) {
-    collectionOn[i].classList.toggle(`hidden`);
-    collectionOff[i].classList.toggle(`hidden`);
+    for (let i = 0; i < collectionOn.length; i++) {
+      collectionOn[i].classList.toggle(`hidden`);
+      collectionOff[i].classList.toggle(`hidden`);
+    }
   }
-}
-
 
   // функция вставки текста
   function textInsert(text) {
@@ -163,11 +183,38 @@ function onOffClass (collectionOn, collectionOff) {
     let endPosition = document.querySelector(`.textarea`).selectionEnd;
     let newValueTextInput = "";
     if (startPosition == endPosition && endPosition != 0) {
-      if (document.querySelector(`.textarea`).selectionStart == document.querySelector(`.textarea`).value.length) {
-        newValueTextInput = document.querySelector(`.textarea`).value.substring(0,document.querySelector(`.textarea`).selectionStart - 1) + document.querySelector(`.textarea`).value.substring(document.querySelector(`.textarea`).selectionEnd, document.querySelector(`.textarea`).value.length);
+      if (
+        document.querySelector(`.textarea`).selectionStart ==
+        document.querySelector(`.textarea`).value.length
+      ) {
+        newValueTextInput =
+          document
+            .querySelector(`.textarea`)
+            .value.substring(
+              0,
+              document.querySelector(`.textarea`).selectionStart - 1
+            ) +
+          document
+            .querySelector(`.textarea`)
+            .value.substring(
+              document.querySelector(`.textarea`).selectionEnd,
+              document.querySelector(`.textarea`).value.length
+            );
         document.querySelector(`.textarea`).value = newValueTextInput;
       } else {
-        newValueTextInput = document.querySelector(`.textarea`).value.substring(0,document.querySelector(`.textarea`).selectionStart - 1) + document.querySelector(`.textarea`).value.substring(document.querySelector(`.textarea`).selectionEnd, document.querySelector(`.textarea`).value.length);
+        newValueTextInput =
+          document
+            .querySelector(`.textarea`)
+            .value.substring(
+              0,
+              document.querySelector(`.textarea`).selectionStart - 1
+            ) +
+          document
+            .querySelector(`.textarea`)
+            .value.substring(
+              document.querySelector(`.textarea`).selectionEnd,
+              document.querySelector(`.textarea`).value.length
+            );
         document.querySelector(`.textarea`).value = newValueTextInput;
         document.querySelector(`.textarea`).selectionStart = startPosition - 1;
         document.querySelector(`.textarea`).selectionEnd = endPosition - 1;
@@ -181,8 +228,8 @@ function onOffClass (collectionOn, collectionOff) {
             endPosition,
             document.querySelector(`.textarea`).value.length
           );
-          document.querySelector(`.textarea`).value = newValueTextInput;
-          document.querySelector(`.textarea`).selectionEnd = startPosition;
+      document.querySelector(`.textarea`).value = newValueTextInput;
+      document.querySelector(`.textarea`).selectionEnd = startPosition;
     }
   }
 
@@ -191,10 +238,25 @@ function onOffClass (collectionOn, collectionOff) {
     let endPosition = document.querySelector(`.textarea`).selectionEnd;
     let newValueTextInput = "";
     if (startPosition == endPosition) {
-      if (document.querySelector(`.textarea`).selectionStart != document.querySelector(`.textarea`).value.length) {
-        newValueTextInput = document.querySelector(`.textarea`).value.substring(0,document.querySelector(`.textarea`).selectionStart) + document.querySelector(`.textarea`).value.substring(document.querySelector(`.textarea`).selectionEnd + 1, document.querySelector(`.textarea`).value.length);
+      if (
+        document.querySelector(`.textarea`).selectionStart !=
+        document.querySelector(`.textarea`).value.length
+      ) {
+        newValueTextInput =
+          document
+            .querySelector(`.textarea`)
+            .value.substring(
+              0,
+              document.querySelector(`.textarea`).selectionStart
+            ) +
+          document
+            .querySelector(`.textarea`)
+            .value.substring(
+              document.querySelector(`.textarea`).selectionEnd + 1,
+              document.querySelector(`.textarea`).value.length
+            );
         document.querySelector(`.textarea`).value = newValueTextInput;
-        document.querySelector(`.textarea`).selectionStart = startPosition ;
+        document.querySelector(`.textarea`).selectionStart = startPosition;
         document.querySelector(`.textarea`).selectionEnd = endPosition;
       }
     } else {
@@ -206,15 +268,19 @@ function onOffClass (collectionOn, collectionOff) {
             endPosition,
             document.querySelector(`.textarea`).value.length
           );
-          document.querySelector(`.textarea`).value = newValueTextInput;
-          document.querySelector(`.textarea`).selectionEnd = startPosition;
+      document.querySelector(`.textarea`).value = newValueTextInput;
+      document.querySelector(`.textarea`).selectionEnd = startPosition;
     }
   }
-  let capsKey = document.querySelector(`.CapsLock`)
+  let capsKey = document.querySelector(`.CapsLock`);
   // проверяю язык и включаю на клавиатуре нужный
   if (localStorage.getItem(`language`) == `eng`) {
-    let collectionOn = Array.from(document.getElementsByClassName(`eng normal`));
-    let collectionOff = Array.from(document.getElementsByClassName(`ru normal`));
+    let collectionOn = Array.from(
+      document.getElementsByClassName(`eng normal`)
+    );
+    let collectionOff = Array.from(
+      document.getElementsByClassName(`ru normal`)
+    );
 
     for (let i = 0; i < collectionOn.length; i++) {
       collectionOn[i].classList.remove(`hidden`);
@@ -222,48 +288,82 @@ function onOffClass (collectionOn, collectionOff) {
     }
   } else {
     let collectionOn = Array.from(document.getElementsByClassName(`ru normal`));
-    let collectionOff = Array.from(document.getElementsByClassName(`eng normal`));
+    let collectionOff = Array.from(
+      document.getElementsByClassName(`eng normal`)
+    );
     for (let i = 0; i < collectionOn.length; i++) {
       collectionOn[i].classList.remove(`hidden`);
       collectionOff[i].classList.add(`hidden`);
     }
   }
-  // получаю массив всех клавиш на страница и вешаю листнер для каждой 
-  Array.from(document.getElementsByClassName(`keyboard__key`)).forEach((element) => {
-    // лиснер для клика на кливишу 
+  // получаю массив всех клавиш на страница и вешаю листнер для каждой
+  Array.from(document.getElementsByClassName(`keyboard__key`)).forEach(
+    (element) => {
+      // лиснер для клика на кливишу
       element.addEventListener(`click`, (event) => {
         if (element.classList.contains(`Tab`)) {
-          textInsert(document.querySelector(`    `).textContent);
+          textInsert(`    `);
         } else if (element.classList.contains(`Backspace`)) {
           textDeleteBackspace();
         } else if (element.classList.contains(`CapsLock`)) {
-          onOffClass(document.getElementsByClassName(`${actual_language} capslock`), document.getElementsByClassName(`${actual_language} normal`))
-          capsKey.classList.toggle(`caps_active`)
-          
-        } else if (event.target.outerText == 'Shift' || event.target.outerText == 'Ctrl' || event.target.outerText == 'Alt' || event.target.outerText == 'Win') {
+          onOffClass(
+            document.getElementsByClassName(`${actual_language} capslock`),
+            document.getElementsByClassName(`${actual_language} normal`)
+          );
+          capsKey.classList.toggle(`caps_active`);
+        } else if (
+          event.target.outerText == "Shift" ||
+          event.target.outerText == "Ctrl" ||
+          event.target.outerText == "Alt" ||
+          event.target.outerText == "Win"
+        ) {
         } else if (shiftPressed) {
-          if (document.querySelector(`.CapsLock`).classList.contains(`caps_active`)) {
-            textInsert(document.querySelector(`.${element.classList[0]}.${element.classList[1]} .${`${actual_language}.normal`}`).textContent);    
+          if (
+            document
+              .querySelector(`.CapsLock`)
+              .classList.contains(`caps_active`)
+          ) {
+            textInsert(
+              document.querySelector(
+                `.${element.classList[0]}.${
+                  element.classList[1]
+                } .${`${actual_language}.normal`}`
+              ).textContent
+            );
           } else {
-            textInsert(document.querySelector(`.${element.classList[0]}.${element.classList[1]} .${`${actual_language}.shift`}`).textContent);    
+            textInsert(
+              document.querySelector(
+                `.${element.classList[0]}.${
+                  element.classList[1]
+                } .${`${actual_language}.shift`}`
+              ).textContent
+            );
           }
         } else if (element.classList.contains(`Enter`)) {
           textInsert(`\n`);
         } else if (element.classList.contains(`Delete`)) {
           textDeleteDel();
-        }
-        
-        else {
+        } else {
           if (capsKey.classList.contains(`caps_active`)) {
-            textInsert(document.querySelector(`.${element.classList[0]}.${element.classList[1]} .${`${actual_language}.capslock`}`).textContent);
-          } else {  
-            textInsert(document.querySelector(`.${element.classList[0]}.${element.classList[1]} .${`${actual_language}.normal`}`).textContent);
+            textInsert(
+              document.querySelector(
+                `.${element.classList[0]}.${
+                  element.classList[1]
+                } .${`${actual_language}.capslock`}`
+              ).textContent
+            );
+          } else {
+            textInsert(
+              document.querySelector(
+                `.${element.classList[0]}.${
+                  element.classList[1]
+                } .${`${actual_language}.normal`}`
+              ).textContent
+            );
           }
         }
       });
     }
-
-
   );
   // деактивирую возможность выделять элементы везде, кроме textarea
   document.addEventListener("selectstart", (event) => {
@@ -278,9 +378,15 @@ function onOffClass (collectionOn, collectionOff) {
     if (event.target.outerText == `Shift`) {
       event.preventDefault();
       shiftPressed = true;
-      let collectionOn = Array.from(document.getElementsByClassName(`${actual_language} capslock`));
-      let collectionOff = Array.from(document.getElementsByClassName(`${actual_language} normal`));
-      if (document.querySelector(`.CapsLock`).classList.contains(`caps_active`)) {
+      let collectionOn = Array.from(
+        document.getElementsByClassName(`${actual_language} capslock`)
+      );
+      let collectionOff = Array.from(
+        document.getElementsByClassName(`${actual_language} normal`)
+      );
+      if (
+        document.querySelector(`.CapsLock`).classList.contains(`caps_active`)
+      ) {
         for (let i = 0; i < collectionOn.length; i++) {
           collectionOn[i].classList.add(`hidden`);
           collectionOff[i].classList.remove(`hidden`);
@@ -302,15 +408,20 @@ function onOffClass (collectionOn, collectionOff) {
   document.addEventListener("mouseup", (event) => {
     if (event.target.outerText == `Shift`) {
       shiftPressed = false;
-      let collectionOn = Array.from(document.getElementsByClassName(`${actual_language} capslock`));
-      let collectionOff = Array.from(document.getElementsByClassName(`${actual_language} normal`));
-      if (document.querySelector(`.CapsLock`).classList.contains(`caps_active`)) {
+      let collectionOn = Array.from(
+        document.getElementsByClassName(`${actual_language} capslock`)
+      );
+      let collectionOff = Array.from(
+        document.getElementsByClassName(`${actual_language} normal`)
+      );
+      if (
+        document.querySelector(`.CapsLock`).classList.contains(`caps_active`)
+      ) {
         for (let i = 0; i < collectionOn.length; i++) {
           collectionOn[i].classList.remove(`hidden`);
           collectionOff[i].classList.add(`hidden`);
         }
-      }
-      else {
+      } else {
         for (let i = 0; i < collectionOn.length; i++) {
           collectionOn[i].classList.add(`hidden`);
           collectionOff[i].classList.remove(`hidden`);
@@ -323,7 +434,7 @@ function onOffClass (collectionOn, collectionOff) {
   document.addEventListener("keydown", (event) => {
     if (event.key === `Tab`) {
       event.preventDefault();
-      document.querySelector(`.Tab`).classList.add(`tab-active`)
+      document.querySelector(`.Tab`).classList.add(`tab-active`);
       textInsert(`    `);
     }
     if (event.key === `Enter`) {
@@ -348,16 +459,25 @@ function onOffClass (collectionOn, collectionOff) {
     }
     if (event.key === `CapsLock`) {
       event.preventDefault();
-      onOffClass(document.getElementsByClassName(`${actual_language} capslock`), document.getElementsByClassName(`${actual_language} normal`))
-      capsKey.classList.toggle(`caps_active`)
+      onOffClass(
+        document.getElementsByClassName(`${actual_language} capslock`),
+        document.getElementsByClassName(`${actual_language} normal`)
+      );
+      capsKey.classList.toggle(`caps_active`);
     }
     if (event.key === `Shift`) {
       event.preventDefault();
       shiftPressed = true;
-      let collectionOn = Array.from(document.getElementsByClassName(`${actual_language} capslock`));
-      let collectionOff = Array.from(document.getElementsByClassName(`${actual_language} normal`));
-    
-      if (document.querySelector(`.CapsLock`).classList.contains(`caps_active`)) {
+      let collectionOn = Array.from(
+        document.getElementsByClassName(`${actual_language} capslock`)
+      );
+      let collectionOff = Array.from(
+        document.getElementsByClassName(`${actual_language} normal`)
+      );
+
+      if (
+        document.querySelector(`.CapsLock`).classList.contains(`caps_active`)
+      ) {
         for (let i = 0; i < collectionOn.length; i++) {
           collectionOn[i].classList.add(`hidden`);
           collectionOff[i].classList.remove(`hidden`);
@@ -370,36 +490,60 @@ function onOffClass (collectionOn, collectionOff) {
       }
     }
     if (event.key === `Control`) {
-      document.querySelector(`.ControlLeft`).classList.add(`control-active`)
+      document.querySelector(`.ControlLeft`).classList.add(`control-active`);
     }
     if (event.key === `Alt`) {
-      event.preventDefault()
-      document.querySelector(`.AltLeft`).classList.add(`alt-active`)
+      event.preventDefault();
+      document.querySelector(`.AltLeft`).classList.add(`alt-active`);
     }
-    if (document.querySelector(`.AltLeft`).classList.contains(`alt-active`) && document.querySelector(`.ControlLeft`).classList.contains(`control-active`)) {
+    if (
+      document.querySelector(`.AltLeft`).classList.contains(`alt-active`) &&
+      document
+        .querySelector(`.ControlLeft`)
+        .classList.contains(`control-active`)
+    ) {
       let acum_lang = actual_language;
-      if (actual_language == 'eng') {
+      if (actual_language == "eng") {
         actual_language = `ru`;
-        localStorage.setItem('language', actual_language)
+        localStorage.setItem("language", actual_language);
         if (capsKey.classList.contains(`caps_active`)) {
-          onOffClass(document.getElementsByClassName(`${actual_language} capslock`), document.getElementsByClassName(`${acum_lang} capslock`))
+          onOffClass(
+            document.getElementsByClassName(`${actual_language} capslock`),
+            document.getElementsByClassName(`${acum_lang} capslock`)
+          );
         } else {
-          onOffClass(document.getElementsByClassName(`${actual_language} normal`), document.getElementsByClassName(`${acum_lang} normal`))
+          onOffClass(
+            document.getElementsByClassName(`${actual_language} normal`),
+            document.getElementsByClassName(`${acum_lang} normal`)
+          );
         }
-      } else if (document.querySelector(`.AltLeft`).classList.contains(`alt-active`) && document.querySelector(`.Tab`).classList.contains(`tab-active`)) {
+      } else if (
+        document.querySelector(`.AltLeft`).classList.contains(`alt-active`) &&
+        document.querySelector(`.Tab`).classList.contains(`tab-active`)
+      ) {
       } else {
         actual_language = `eng`;
-        localStorage.setItem('language', actual_language)
+        localStorage.setItem("language", actual_language);
         if (capsKey.classList.contains(`caps_active`)) {
-          onOffClass(document.getElementsByClassName(`${actual_language} capslock`), document.getElementsByClassName(`${acum_lang} capslock`))
+          onOffClass(
+            document.getElementsByClassName(`${actual_language} capslock`),
+            document.getElementsByClassName(`${acum_lang} capslock`)
+          );
         } else {
-          onOffClass(document.getElementsByClassName(`${actual_language} normal`), document.getElementsByClassName(`${acum_lang} normal`))
+          onOffClass(
+            document.getElementsByClassName(`${actual_language} normal`),
+            document.getElementsByClassName(`${acum_lang} normal`)
+          );
         }
       }
-
     }
-    if (!((event.getModifierState('CapsLock') == true ) &&  (capsKey.classList.contains(`caps_active`) == true))) {
-      event.getModifierState('CapsLock') == false
+    if (
+      !(
+        event.getModifierState("CapsLock") == true &&
+        capsKey.classList.contains(`caps_active`) == true
+      )
+    ) {
+      event.getModifierState("CapsLock") == false;
     }
     if (document.querySelector(`.${event.code}`)) {
       document.querySelector(`.${event.code}`).classList.add(`active`);
@@ -412,16 +556,21 @@ function onOffClass (collectionOn, collectionOff) {
     }
     if (event.key === `Shift`) {
       shiftPressed = false;
-      let collectionOn = Array.from(document.getElementsByClassName(`${actual_language} capslock`));
-      let collectionOff = Array.from(document.getElementsByClassName(`${actual_language} normal`));
-    
-      if (document.querySelector(`.CapsLock`).classList.contains(`caps_active`)) {
+      let collectionOn = Array.from(
+        document.getElementsByClassName(`${actual_language} capslock`)
+      );
+      let collectionOff = Array.from(
+        document.getElementsByClassName(`${actual_language} normal`)
+      );
+
+      if (
+        document.querySelector(`.CapsLock`).classList.contains(`caps_active`)
+      ) {
         for (let i = 0; i < collectionOn.length; i++) {
           collectionOn[i].classList.remove(`hidden`);
           collectionOff[i].classList.add(`hidden`);
         }
-      }
-      else {
+      } else {
         for (let i = 0; i < collectionOn.length; i++) {
           collectionOn[i].classList.add(`hidden`);
           collectionOff[i].classList.remove(`hidden`);
@@ -430,43 +579,58 @@ function onOffClass (collectionOn, collectionOff) {
     }
 
     if (event.key === `Control`) {
-      document.querySelector(`.ControlLeft`).classList.remove(`control-active`)
+      document.querySelector(`.ControlLeft`).classList.remove(`control-active`);
     }
     if (event.key === `Alt`) {
-      event.preventDefault()
-      document.querySelector(`.AltLeft`).classList.remove(`alt-active`)
+      event.preventDefault();
+      document.querySelector(`.AltLeft`).classList.remove(`alt-active`);
     }
   });
 
-
-  document.addEventListener('keypress', (event) => {
+  document.addEventListener("keypress", (event) => {
     if (!document.querySelector(`.${event.code}`)) {
       console.log(`нет такой клавишы`);
-      event.preventDefault()
-      return 
+      event.preventDefault();
+      return;
     }
-    // блок для обработки нажатия CAPSLOCK 
-    if ((event.getModifierState('CapsLock') == true ) &&  (capsKey.classList.contains(`caps_active`) == false)) {
-      event.preventDefault()
-      textInsert(document.querySelector(`.${event.code} .${`${actual_language}.normal`}`).textContent)
-    }
-    else if ((!event.getModifierState('CapsLock')) &&  (capsKey.classList.contains(`caps_active`))) {
-      event.preventDefault()
-      textInsert(document.querySelector(`.${event.code} .${`${actual_language}.capslock `}`).textContent)
-    }
-    else if (event.key === `Alt`) {
-      event.preventDefault()
+    // блок для обработки нажатия CAPSLOCK
+    if (
+      event.getModifierState("CapsLock") == true &&
+      capsKey.classList.contains(`caps_active`) == false
+    ) {
+      event.preventDefault();
+      textInsert(
+        document.querySelector(`.${event.code} .${`${actual_language}.normal`}`)
+          .textContent
+      );
+    } else if (
+      !event.getModifierState("CapsLock") &&
+      capsKey.classList.contains(`caps_active`)
+    ) {
+      event.preventDefault();
+      textInsert(
+        document.querySelector(
+          `.${event.code} .${`${actual_language}.capslock `}`
+        ).textContent
+      );
+    } else if (event.key === `Alt`) {
+      event.preventDefault();
     } else if (event.key === `MetaKey`) {
     } else {
-      event.preventDefault()
+      event.preventDefault();
       if (capsKey.classList.contains(`caps_active`)) {
-        textInsert(document.querySelector(`.${event.code} .${`${actual_language}.capslock `}`).textContent);
+        textInsert(
+          document.querySelector(
+            `.${event.code} .${`${actual_language}.capslock `}`
+          ).textContent
+        );
       } else {
-        textInsert(document.querySelector(`.${event.code} .${`${actual_language}.normal `}`).textContent);
-
+        textInsert(
+          document.querySelector(
+            `.${event.code} .${`${actual_language}.normal `}`
+          ).textContent
+        );
       }
     }
-  })
-
+  });
 });
-
