@@ -1,4 +1,4 @@
-{
+let keyObject = {
   "row_1": {
     "key1": {
       "key_eng": "`",
@@ -459,3 +459,5 @@
     }
   }
 }
+
+export default keyObject;

@@ -15,5 +15,9 @@
 // };
 
 {
-  "extends": ["airbnb/base"]
+  "extends": ["airbnb/base"],
+  "env": {
+    "browser": true
+  },
+  "camelcase": [1, {"properties": "never"}]
 }

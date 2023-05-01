@@ -1,18 +1,19 @@
-import keyObject from "./keys.json" assert {type: "json"};
+// eslint-disable-next-line import/extensions
+import keyObject from './keys.js';
 
 let shiftPressed = false;
-let actual_language;
+let actualLanguage;
 if (
-  localStorage.getItem(`language`) &&
-  (localStorage.getItem(`language`) == `eng` ||
-    localStorage.getItem(`language`) == `ru`)
+  localStorage.getItem('language')
+  && (localStorage.getItem('language') === 'eng'
+  || localStorage.getItem('language') === 'ru')
 ) {
-  actual_language = localStorage.getItem(`language`);
+  actualLanguage = localStorage.getItem('language');
 } else {
-  actual_language = `eng`;
-  localStorage.setItem("language", actual_language);
+  actualLanguage = 'eng';
+  localStorage.setItem('language', actualLanguage);
 }
-class add_element {
+class addElement {
   constructor(tag, classes, content, content_ru, contentUp_en, contentUp_ru) {
     this.tag = tag;
     this.classes = classes;
@@ -103,22 +104,22 @@ class add_element {
 }
 
 document.body.appendChild(
-  new add_element(`h1`, [`title`], `RSS Virtual Keyboard`).createEL()
+  new addElement(`h1`, [`title`], `RSS Virtual Keyboard`).createEL()
 );
 document.body.appendChild(
-  new add_element(`textarea`, [`textarea`], ``).createEL()
+  new addElement(`textarea`, [`textarea`], ``).createEL()
 );
 document.querySelector(`.textarea`).focus();
-document.body.appendChild(new add_element(`main`, [`keyboard`], ``).createEL());
+document.body.appendChild(new addElement(`main`, [`keyboard`], ``).createEL());
 document.body.appendChild(
-  new add_element(
+  new addElement(
     `h3`,
     [`instruction_1`],
     `Клавиатура создана в операционной системе Windows 10 `
   ).createEL()
 );
 document.body.appendChild(
-  new add_element(
+  new addElement(
     `h3`,
     [`instruction_2`],
     `Для смены языка нажмите левые Ctrl + Alt`
@@ -126,25 +127,25 @@ document.body.appendChild(
 );
 document.querySelector(`.keyboard`);
 
-document.addEventListener("DOMContentLoaded", function (event) {
+document.addEventListener('DOMContentLoaded', function (event) {
   for (let m = 1; m <= Object.keys(keyObject).length; m++) {
     document
       .getElementsByTagName(`main`)[0]
-      .appendChild(new add_element(`div`, [`row_${m}`], ``).createEL());
+      .appendChild(new addElement(`div`, [`row_${m}`], ``).createEL());
     for (let i = 0; i < Object.keys(keyObject[`row_${m}`]).length; i++) {
       document
         .querySelector(`.row_${m}`)
         .appendChild(
-          new add_element(
+          new addElement(
             `div`,
             [
               `keyboard__key`,
-              `${Object.values(keyObject[`row_${m}`])[i]["code"]}`,
+              `${Object.values(keyObject[`row_${m}`])[i]['code']}`,
             ],
-            `${Object.values(keyObject[`row_${m}`])[i]["key_eng"]}`,
-            `${Object.values(keyObject[`row_${m}`])[i]["key_ru"]}`,
-            `${Object.values(keyObject[`row_${m}`])[i]["key_shift_eng"]}`,
-            `${Object.values(keyObject[`row_${m}`])[i]["key_shift_ru"]}`
+            `${Object.values(keyObject[`row_${m}`])[i]['key_eng']}`,
+            `${Object.values(keyObject[`row_${m}`])[i]['key_ru']}`,
+            `${Object.values(keyObject[`row_${m}`])[i]['key_shift_eng']}`,
+            `${Object.values(keyObject[`row_${m}`])[i]['key_shift_ru']}`
           ).createKey()
         );
     }
@@ -181,7 +182,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   function textDeleteBackspace(text) {
     let startPosition = document.querySelector(`.textarea`).selectionStart;
     let endPosition = document.querySelector(`.textarea`).selectionEnd;
-    let newValueTextInput = "";
+    let newValueTextInput = '';
     if (startPosition == endPosition && endPosition != 0) {
       if (
         document.querySelector(`.textarea`).selectionStart ==
@@ -236,7 +237,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   function textDeleteDel(text) {
     let startPosition = document.querySelector(`.textarea`).selectionStart;
     let endPosition = document.querySelector(`.textarea`).selectionEnd;
-    let newValueTextInput = "";
+    let newValueTextInput = '';
     if (startPosition == endPosition) {
       if (
         document.querySelector(`.textarea`).selectionStart !=
@@ -307,15 +308,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
           textDeleteBackspace();
         } else if (element.classList.contains(`CapsLock`)) {
           onOffClass(
-            document.getElementsByClassName(`${actual_language} capslock`),
-            document.getElementsByClassName(`${actual_language} normal`)
+            document.getElementsByClassName(`${actualLanguage} capslock`),
+            document.getElementsByClassName(`${actualLanguage} normal`)
           );
           capsKey.classList.toggle(`caps_active`);
         } else if (
-          event.target.outerText == "Shift" ||
-          event.target.outerText == "Ctrl" ||
-          event.target.outerText == "Alt" ||
-          event.target.outerText == "Win"
+          event.target.outerText == 'Shift' ||
+          event.target.outerText == 'Ctrl' ||
+          event.target.outerText == 'Alt' ||
+          event.target.outerText == 'Win'
         ) {
         } else if (shiftPressed) {
           if (
@@ -327,7 +328,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
               document.querySelector(
                 `.${element.classList[0]}.${
                   element.classList[1]
-                } .${`${actual_language}.normal`}`
+                } .${`${actualLanguage}.normal`}`
               ).textContent
             );
           } else {
@@ -335,7 +336,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
               document.querySelector(
                 `.${element.classList[0]}.${
                   element.classList[1]
-                } .${`${actual_language}.shift`}`
+                } .${`${actualLanguage}.shift`}`
               ).textContent
             );
           }
@@ -349,7 +350,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
               document.querySelector(
                 `.${element.classList[0]}.${
                   element.classList[1]
-                } .${`${actual_language}.capslock`}`
+                } .${`${actualLanguage}.capslock`}`
               ).textContent
             );
           } else {
@@ -357,7 +358,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
               document.querySelector(
                 `.${element.classList[0]}.${
                   element.classList[1]
-                } .${`${actual_language}.normal`}`
+                } .${`${actualLanguage}.normal`}`
               ).textContent
             );
           }
@@ -366,7 +367,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
   );
   // деактивирую возможность выделять элементы везде, кроме textarea
-  document.addEventListener("selectstart", (event) => {
+  document.addEventListener('selectstart', (event) => {
     if (!event.target.classList.contains(`textarea`)) {
       event.preventDefault();
       return false;
@@ -374,15 +375,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
   });
 
   // лиснер для нажатой но не отпущенной кнопки мыши
-  document.addEventListener("mousedown", (event) => {
+  document.addEventListener('mousedown', (event) => {
     if (event.target.outerText == `Shift`) {
       event.preventDefault();
       shiftPressed = true;
       let collectionOn = Array.from(
-        document.getElementsByClassName(`${actual_language} capslock`)
+        document.getElementsByClassName(`${actualLanguage} capslock`)
       );
       let collectionOff = Array.from(
-        document.getElementsByClassName(`${actual_language} normal`)
+        document.getElementsByClassName(`${actualLanguage} normal`)
       );
       if (
         document.querySelector(`.CapsLock`).classList.contains(`caps_active`)
@@ -405,14 +406,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
   });
 
   // лиснер для отпущенной кнопки мыши
-  document.addEventListener("mouseup", (event) => {
+  document.addEventListener('mouseup', (event) => {
     if (event.target.outerText == `Shift`) {
       shiftPressed = false;
       let collectionOn = Array.from(
-        document.getElementsByClassName(`${actual_language} capslock`)
+        document.getElementsByClassName(`${actualLanguage} capslock`)
       );
       let collectionOff = Array.from(
-        document.getElementsByClassName(`${actual_language} normal`)
+        document.getElementsByClassName(`${actualLanguage} normal`)
       );
       if (
         document.querySelector(`.CapsLock`).classList.contains(`caps_active`)
@@ -431,7 +432,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   });
 
   // лиснер для нажатой, но не отпущенной клавишы клавиатуры
-  document.addEventListener("keydown", (event) => {
+  document.addEventListener('keydown', (event) => {
     if (event.key === `Tab`) {
       event.preventDefault();
       document.querySelector(`.Tab`).classList.add(`tab-active`);
@@ -460,8 +461,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
     if (event.key === `CapsLock`) {
       event.preventDefault();
       onOffClass(
-        document.getElementsByClassName(`${actual_language} capslock`),
-        document.getElementsByClassName(`${actual_language} normal`)
+        document.getElementsByClassName(`${actualLanguage} capslock`),
+        document.getElementsByClassName(`${actualLanguage} normal`)
       );
       capsKey.classList.toggle(`caps_active`);
     }
@@ -469,10 +470,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
       event.preventDefault();
       shiftPressed = true;
       let collectionOn = Array.from(
-        document.getElementsByClassName(`${actual_language} capslock`)
+        document.getElementsByClassName(`${actualLanguage} capslock`)
       );
       let collectionOff = Array.from(
-        document.getElementsByClassName(`${actual_language} normal`)
+        document.getElementsByClassName(`${actualLanguage} normal`)
       );
 
       if (
@@ -502,18 +503,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
         .querySelector(`.ControlLeft`)
         .classList.contains(`control-active`)
     ) {
-      let acum_lang = actual_language;
-      if (actual_language == "eng") {
-        actual_language = `ru`;
-        localStorage.setItem("language", actual_language);
+      let acum_lang = actualLanguage;
+      if (actualLanguage == 'eng') {
+        actualLanguage = `ru`;
+        localStorage.setItem('language', actualLanguage);
         if (capsKey.classList.contains(`caps_active`)) {
           onOffClass(
-            document.getElementsByClassName(`${actual_language} capslock`),
+            document.getElementsByClassName(`${actualLanguage} capslock`),
             document.getElementsByClassName(`${acum_lang} capslock`)
           );
         } else {
           onOffClass(
-            document.getElementsByClassName(`${actual_language} normal`),
+            document.getElementsByClassName(`${actualLanguage} normal`),
             document.getElementsByClassName(`${acum_lang} normal`)
           );
         }
@@ -522,16 +523,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
         document.querySelector(`.Tab`).classList.contains(`tab-active`)
       ) {
       } else {
-        actual_language = `eng`;
-        localStorage.setItem("language", actual_language);
+        actualLanguage = `eng`;
+        localStorage.setItem('language', actualLanguage);
         if (capsKey.classList.contains(`caps_active`)) {
           onOffClass(
-            document.getElementsByClassName(`${actual_language} capslock`),
+            document.getElementsByClassName(`${actualLanguage} capslock`),
             document.getElementsByClassName(`${acum_lang} capslock`)
           );
         } else {
           onOffClass(
-            document.getElementsByClassName(`${actual_language} normal`),
+            document.getElementsByClassName(`${actualLanguage} normal`),
             document.getElementsByClassName(`${acum_lang} normal`)
           );
         }
@@ -539,28 +540,28 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
     if (
       !(
-        event.getModifierState("CapsLock") == true &&
+        event.getModifierState('CapsLock') == true &&
         capsKey.classList.contains(`caps_active`) == true
       )
     ) {
-      event.getModifierState("CapsLock") == false;
+      event.getModifierState('CapsLock') == false;
     }
     if (document.querySelector(`.${event.code}`)) {
       document.querySelector(`.${event.code}`).classList.add(`active`);
     }
   });
   // лиснер для отпущенной клавишы клавиатуры
-  document.addEventListener("keyup", (event) => {
+  document.addEventListener('keyup', (event) => {
     if (document.querySelector(`.${event.code}`)) {
       document.querySelector(`.${event.code}`).classList.remove(`active`);
     }
     if (event.key === `Shift`) {
       shiftPressed = false;
       let collectionOn = Array.from(
-        document.getElementsByClassName(`${actual_language} capslock`)
+        document.getElementsByClassName(`${actualLanguage} capslock`)
       );
       let collectionOff = Array.from(
-        document.getElementsByClassName(`${actual_language} normal`)
+        document.getElementsByClassName(`${actualLanguage} normal`)
       );
 
       if (
@@ -587,7 +588,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
   });
 
-  document.addEventListener("keypress", (event) => {
+  document.addEventListener('keypress', (event) => {
     if (!document.querySelector(`.${event.code}`)) {
       console.log(`нет такой клавишы`);
       event.preventDefault();
@@ -595,22 +596,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
     // блок для обработки нажатия CAPSLOCK
     if (
-      event.getModifierState("CapsLock") == true &&
+      event.getModifierState('CapsLock') == true &&
       capsKey.classList.contains(`caps_active`) == false
     ) {
       event.preventDefault();
       textInsert(
-        document.querySelector(`.${event.code} .${`${actual_language}.normal`}`)
+        document.querySelector(`.${event.code} .${`${actualLanguage}.normal`}`)
           .textContent
       );
     } else if (
-      !event.getModifierState("CapsLock") &&
+      !event.getModifierState('CapsLock') &&
       capsKey.classList.contains(`caps_active`)
     ) {
       event.preventDefault();
       textInsert(
         document.querySelector(
-          `.${event.code} .${`${actual_language}.capslock `}`
+          `.${event.code} .${`${actualLanguage}.capslock `}`
         ).textContent
       );
     } else if (event.key === `Alt`) {
@@ -621,13 +622,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
       if (capsKey.classList.contains(`caps_active`)) {
         textInsert(
           document.querySelector(
-            `.${event.code} .${`${actual_language}.capslock `}`
+            `.${event.code} .${`${actualLanguage}.capslock `}`
           ).textContent
         );
       } else {
         textInsert(
           document.querySelector(
-            `.${event.code} .${`${actual_language}.normal `}`
+            `.${event.code} .${`${actualLanguage}.normal `}`
           ).textContent
         );
       }
