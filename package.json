@@ -1,0 +1,38 @@
+{
+  "name": "rss-virtual-keyboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZiberPax/RSS-Virtual-Keyboard.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZiberPax/RSS-Virtual-Keyboard/issues"
+  },
+  "homepage": "https://github.com/ZiberPax/RSS-Virtual-Keyboard#readme",
+  "dependencies": {
+    "eslint": "^8.39.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.21.3",
+    "babel-eslint": "^10.1.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-html": "^7.1.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.8"
+  }
+}
